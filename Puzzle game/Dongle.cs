@@ -4,12 +4,20 @@ using UnityEngine;
 
 public class Dongle : MonoBehaviour
 {
+    public int level;
     public bool isDrag;
     Rigidbody2D rigid;
+    Animator anim;
 
     void Awake() 
     {
         rigid = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+    }
+
+    void OnEnable()
+    {
+        anim.SetInteger("Level", level);
     }
 
     void Update()
